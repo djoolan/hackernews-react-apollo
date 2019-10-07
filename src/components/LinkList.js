@@ -29,7 +29,6 @@ export const FEED_QUERY = gql`
 class LinkList extends Component {
     _updateCacheAfterVote = (store, createVote, linkId) => {
         const data = store.readQuery({ query: FEED_QUERY })
-        console.log('createVote', createVote)
         const votedLink = data.feed.links.find(link => link.id === linkId)
         votedLink.votes.push(createVote)
         store.writeQuery({ query: FEED_QUERY, data })
